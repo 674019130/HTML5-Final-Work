@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+    <link rel="stylesheet" href="../CSS/final'CSS.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+
+
+<body>
+<!--//侧边栏-->
+<div class="wrapper">
+    <!--图标设置可以设置多种图标QQ，微信，微博，邮件，电话等-->
+    <!--<i class="fa fa-qq"></i>-->
+    <!--<i class="fa fa-weixin"></i>-->
+    <!--<i class="fa fa-weibo"></i>-->
+    <!--<i class="far fa-envelope"></i>-->
+    <!--<i class="fas fa-phone"></i>-->
+    <!--<i class="fa fa-facebook-f" arria-hidden="true"></i>-->
+    <!--<i class="fa fa-twitter" arria-hidden="true"></i>-->
+    <!--<i class="fa fa-reddit-alien" arria-hidden="true"></i>-->
+    <!--<i class="fa fa-google" arria-hidden="true"></i>-->
+    <!--<i class="fa fa-whatsapp" arria-hidden="true"></i>-->
+
+    <div class="share qq">
+        <i class="fa fa-qq"></i>
+    </div>
+    <div class="share weixin">
+        <i class="fa fa-weixin"></i>
+
+    </div>
+    <div class="share weibo">
+        <i class="fa fa-weibo"></i>
+    </div>
+    <div class="share envelope">
+        <i class="fa fa-envelope"></i>
+    </div>
+    <div class="share phone">
+        <i class="fa fa-phone"></i>
+    </div>
+</div>
+
+<!--<div class="div06" id="div06">-->
+    <!--<ul id="ul01">-->
+        <!--<li><a href=""><img src="../image/云层4.1.png" alt="" width="150px" height="600px"></a></li>-->
+        <!--<li><a href=""><img src="../image/云层3.1.png" alt="" width="150px" height="600px"></a></li>-->
+        <!--<li><a href=""><img src="../image/云层5.1.png" alt="" width="150px" height="600px"></a></li>-->
+        <!--<li><a href=""><img src="../image/云层6.1.png" alt="" width="150px" height="600px"></a></li>-->
+        <!--<li></li>-->
+        <!--<li></li>-->
+    <!--</ul>-->
+<!--</div>-->
+
+<!--<div class="div06" id="div05">-->
+    <!--<ul id="ul02">-->
+        <!--<li><a href=""><img src="../image/云层4.1.png" alt="" width="150px" height="600px"></a></li>-->
+        <!--<li><a href=""><img src="../image/云层3.1.png" alt="" width="150px" height="600px"></a></li>-->
+        <!--<li><a href=""><img src="../image/云层5.1.png" alt="" width="150px" height="600px"></a></li>-->
+        <!--<li><a href=""><img src="../image/云层6.1.png" alt="" width="150px" height="600px"></a></li>-->
+        <!--<li></li>-->
+        <!--<li></li>-->
+    <!--</ul>-->
+<!--</div>-->
+
+
+<div class="header">
+    <div class="header_01">
+        <img id="img_logo" src="../image/LOGNtibu.png" alt="" width="150px" height="60px">
+    </div>
+    <div class="header_02">
+        <button class="p_top">产品介绍</button>
+    </div>
+    <div class="header_03">
+        <a href="../HTML01/member_intro.html" target="_blank"><button class="p_top">成员介绍</button></a>
+    </div>
+    <div class="header_04">
+        <button class="p_top">账户管理</button>
+    </div>
+    <div class="header_05">
+        <audio id="audio1" src="../audio/4.mp3"  autoplay="autoplay"></audio>
+        <!--<button  id="button_music1">播放</button>-->
+        <!--<button  id="button_music3">下一首</button>-->
+        <div id="button_music1">
+            <img id="img_play" src="../image/playtibu.png" alt="">
+            <img id="img_pause" src="../image/pausetibu.png" alt="">
+        </div>
+        <div id="button_music3">
+            <img id="img_next"src="../image/nexttibu.png" alt="">
+        </div>
+    </div>
+
+</div>
+
+<div class="head">
+    <img id="head_img" src="../image/logotibu.png" alt="" width="300px">
+    <p id="head_p">
+        Audio Visualization
+    </p>
+
+</div>
+<div class="body_in">
+    <!--链接到WebGL-->
+    <a href="../HTML01/music1.html" target="_blank"><div class="body_in_1" id="body_in_1"><img id="im1" class= "im" src="../image/tib1.jpg" alt="" width="450px" height="400px"></div></a>
+    <a href="../HTML01/music2.html" target="_blank"><div class="body_in_2" id="body_in_2"><img class= "im" src="../image/tib2.jpg" alt="" width="450px" height="400px"></div></a>
+    <a href="../HTML01/music3.html" target="_blank"><div class="body_in_3" id="body_in_3"><img class= "im" src="../image/tib3.png" alt="" width="450px" height="400px"></div></a>
+    <a href="../HTML01/music4.html" target="_blank"><div class="body_in_4" id="body_in_4"><img class= "im" src="../image/tib4.jpg" alt="" width="450px" height="400px"></div></a>
+</div>
+<div class="foot">
+
+</div>
+
+<script>
+    window.onload=function () {
+        var screenW = document.documentElement.clientWidth;
+        var screenH = document.documentElement.clientHeight;
+        //输出屏幕的宽度and高度
+        //输出屏幕的宽度and高度
+        console.log(screenW);
+        //减去一部分屏幕的高度和宽度
+        screenH = 300;
+        screenW = screenW - 40;
+        console.log(screenH);
+
+        //创建星星
+        for (var i = 0; i < 120; i++) {
+            var span = document.createElement('span');
+
+
+            document.body.appendChild(span);
+            //获取随机位置
+            var x = parseInt(Math.random() * screenW);
+            var y = parseInt(Math.random() * screenH);
+
+            console.log(x+"  "+y);
+
+
+            span.style.top = y+ 50+'px';
+            span.style.left = x + 'px';
+
+            var scale = Math.random() * 1.5;
+            span.style.transform = 'scale(' + scale + ',' + scale + ')';
+            var rate = Math.random() * 4;
+            span.style.animationDelay = rate + 's';
+        }
+
+        var audio=document.getElementById('audio1');
+        var button1=document.getElementById('button_music1');
+        var button2=document.getElementById('button_music2');
+        var button3=document.getElementById('button_music3');
+
+
+        /*原控制播放暂停下一首*/
+        var flag_audio=true;
+        var img_play=document.getElementById('img_play');
+        var img_pause=document.getElementById('img_pause');
+        button1.onclick=function () {
+            if(flag_audio){
+                audio.pause();
+                img_play.style.display='block';
+                img_pause.style.display='none';
+
+                flag_audio=false;
+            }
+            else if(!flag_audio){
+                audio.play();
+                flag_audio=true;
+                img_play.style.display='none';
+                img_pause.style.display='block';
+            }
+        }
+        var musicIndex=0;
+        button3.onclick=function () {
+
+            if(musicIndex<=4){
+                musicIndex++;
+                audio.src='../audio/'+musicIndex+'.mp3';
+                img_pause.style.display='block';
+                img_play.style.display='none';
+            }
+            else{
+                musicIndex=0;
+            }
+        }
+
+
+
+
+    }
+
+</script>
+
+
+</body>
+</html>

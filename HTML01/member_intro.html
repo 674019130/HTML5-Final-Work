@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Member Introduction</title>
+    <link rel="stylesheet" href="../CSS/member_intro.css">
+</head>
+<style type="text/css">
+
+    #img01 {
+        width: 1536px;
+        height: 750px;
+        position: absolute;
+
+        z-index: 2;
+        perspective: 500px;
+        transform-style: preserve-3d;
+        animation: imgHidden 0.5s linear 0s 1 alternate;
+        animation-fill-mode: forwards;
+        animation-play-state: paused;
+        transform-origin: center top; /*设置翻转基准*/
+        /*opacity: 0;*/
+        /*transform: translateY(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);*/
+    }
+
+    @keyframes imgHidden {
+        from {
+            opacity: 1;
+            /*margin-top: 0px;*/
+            transform: translateY(0px) rotateX(0deg);
+
+        }
+        to {
+            /*margin-top: -2000px;*/
+            opacity: 0;
+            transform: translateY(-100%) rotateX(90deg);
+
+        }
+    }
+
+</style>
+
+<body>
+
+<!--<img id="img01" src="../image/云层5.1.png" alt="">-->
+<!--<button id="button_absolute"></button>-->
+<span></span>
+
+<script>
+    window.onload = function () {
+        var screenW = document.documentElement.clientWidth;
+        var screenH = document.documentElement.clientHeight;
+        //输出屏幕的宽度and高度
+        //输出屏幕的宽度and高度
+        console.log(screenW);
+        //减去一部分屏幕的高度和宽度
+        screenH = screenH - 40;
+        screenW = screenW - 40;
+        console.log(screenH);
+
+        //创建星星
+        for (var i = 0; i < 120; i++) {
+            var span = document.createElement('span');
+
+
+            document.body.appendChild(span);
+            //获取随机位置
+            var x = parseInt(Math.random() * screenW);
+            var y = parseInt(Math.random() * screenH);
+            //console.log(x);
+            //console.log(y);
+            span.style.top = y + 'px';
+            span.style.left = x + 'px';
+
+            var scale = Math.random() * 1.5;
+            span.style.transform = 'scale(' + scale + ',' + scale + ')';
+            var rate = Math.random() * 1.5;
+            span.style.animationDelay = rate + 's';
+
+        }
+
+        //换肤
+        var btnSkin = window.document.getElementById('btnSkin');
+        // console.log(btnSkin);
+        var index = 1;
+        btnSkin.onclick = function () {
+            if (index <= 3) {
+                document.body.style.backgroundImage = "url('../image/skin" + index + ".png')";
+                document.body.style.backgroundRepeat = "no-repeat"
+                document.body.style.backgroundSize = "cover"
+                index++;
+            } else if (index === 4) {
+                index = 1;
+            }
+        }
+
+
+        //面板时间
+        var spantop = document.getElementById('topspan');
+        var spanbottom = document.getElementById('bottomspan');
+        var spanbottom_Seconds = document.getElementById('bottomspan_seconds');
+
+        function showtime() {
+            spantop.innerText = hour + ":" + minute + "  " + seconds;
+            spanbottom.innerText = day + "." + month + "." + year;
+        }
+
+        setInterval(function () {
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth();
+            var day = date.getDate();
+            var hour = date.getHours();
+            var minute = date.getMinutes();
+            var seconds = date.getSeconds();
+
+            if (minute <= 9) {
+                minute = "0" + minute;
+            }
+            if (seconds <= 9) {
+                seconds = "0" + seconds;
+            }
+            spantop.innerText = hour + ":" + minute;
+            spanbottom_Seconds.innerText = seconds;
+            spanbottom.innerText = day + "." + month + "." + year;
+        }, 1000);
+
+
+        var img01 = document.getElementById('img01');           //获取开场图片
+        var span_star = document.getElementsByClassName('spanstar');       //获取星星
+        var ul01 = document.getElementById('ul01');             //获取旋状体所在的ul
+
+        var audio = document.getElementById('audio1');
+        img01.onclick = function () {
+            img01.style.animationPlayState = 'running';
+            audio.play();
+        }
+
+        //控制背景音乐
+
+        var audio = document.getElementById('audio1');
+        var button_music = document.getElementById('button_music');
+        var music_index = 0;
+
+        button_music.onclick = function () {
+            if (music_index <= 4) {
+                music_index++;
+                audio.src = "../audio/" + music_index + ".mp3";
+                audio.play();
+            } else {
+                music_index = 0;
+            }
+        }
+    }
+</script>
+
+
+<div class="myheader">
+    <div class="myheaderin">
+
+        <button id="btnSkin">换肤</button>
+        <audio id="audio1" src="../audio/2.mp3"></audio>
+        <!--<button id="button_music">下一首</button>-->
+    </div>
+</div>
+
+
+<div class="myhead">
+    <div class="myheadin">
+        <p class="spanG">成</p>
+        <p class="spana">员</p>
+        <p class="spanm">介</p>
+        <p class="spane">绍</p>
+        &nbsp;&nbsp;&nbsp;
+        <!--<p class="spanM">M</p>-->
+        <!--<p class="spana">a</p>-->
+        <!--<p class="spanr">r</p>-->
+        <!--<p class="spank">k</p>-->
+        <!--<p class="spane1">e</p>-->
+        <!--<p class="spant">t</p>-->
+    </div>
+</div>
+
+
+<!--/原2Dbody-->
+<!--<div class="mybody">-->
+<!--<div class="mybox1"><a href="../game1/index.html"><img src="../image/云层3.1.png" alt="" width="300px" height="200px"></a></div>-->
+<!--<div class="mybox2"><a href=""><img src="../image/云层4.1.png" alt="" width="300px" height="200px"></a></div>-->
+<!--<div class="mybox3"><a href=""><img src="../image/云层5.1.png" alt="" width="300px" height="200px"></a></div>-->
+<!--<div class="mybox4"><a href=""><img src="../image/云层6.1.png" alt="" width="300px" height="200px"></a></div>-->
+<!--<div class="mybox5"><a href=""><img src="../image/云层7.1.png" alt="" width="300px" height="200px"></a></div>-->
+<!--<div class="mybox6"><a href=""><img src="../image/云层1.jpg" alt="" width="300px" height="200px"></a></div>-->
+<!--<div class="mybox7"><a href=""><img src="../image/云层2.jpg" alt="" width="300px" height="200px"></a></div>-->
+<!--<div class="mybox8"><a href=""><img src="../image/云层3.jpg" alt="" width="300px" height="200px"></a></div>-->
+<!--</div>-->
+
+
+<!--/*立体轮播*/-->
+<div class="div06" id="div06">
+    <ul id="ul01">
+        <li><img src="../image/member4.png" alt="" width="600px" height="250px"></li>
+        <li><img src="../image/member3.png" alt="" width="600px" height="250px"></li>
+        <li><img src="../image/member2.png" alt="" width="600px" height="250px"></li>
+        <li><img src="../image/member1.png" alt="" width="600px" height="250px"></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+
+
+<div class="myfoot">
+    <div id="right_botton_box">
+        <div id="topone">
+            <p id="topspan">20:45 10</p>
+            <p id="bottomspan_seconds">45</p>
+        </div>
+        <div id="bottomone">
+            <p id="bottomspan">29.1.2018</p>
+
+        </div>
+    </div>
+
+
+    <div class="myfooter">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!--<a href="">把GameMarket设为首页</a>-->
+        <!--&nbsp;-->
+        <!--<a href="">安装GameMarket</a>-->
+        <!--<br>-->
+        <!--<br>-->
+        <!--<a href="">加入GameMarket推广</a>&nbsp;|-->
+        <!--<a href="">搜索GameMarket风云榜</a>&nbsp;|-->
+        <!--<a href="">关于GameMarket</a>&nbsp;|-->
+        <!--<a href="">About GameMarket</a>&nbsp;-->
+        <br>
+        <!--<p>&copy; 2018 GameMarket 使用GM前必读 京ICP证666号</p>-->
+    </div>
+
+    <!--<script>-->
+    <!--window.onload=function () {-->
+    <!--var btnSkin=window.document.getElementById('btnSkin');-->
+    <!--console.log(btnSkin);-->
+    <!--var index=3;-->
+    <!--btnSkin.onclick=function () {-->
+
+    <!--if(index<=7) {-->
+    <!--document.body.style.backgroundImage = "url('../image/云层"+index+".1.png')";-->
+    <!--document.body.style.backgroundRepeat = "no-repeat"-->
+    <!--document.body.style.backgroundSize = "cover"-->
+    <!--index++;-->
+    <!--}-->
+    <!--else if(index===8){-->
+    <!--index=3;-->
+    <!--}-->
+    <!--}-->
+    <!--}-->
+
+    <!--</script>-->
+
+
+</div>
+
+</body>
+</html>

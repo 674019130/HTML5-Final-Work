@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login and Signup</title>
+  <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+
+
+
+<style type="text/css">
+  #img01 {
+    width: 1536px;
+    height: 754px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+    z-index: 2;
+    perspective: 500px;
+    transform-style: preserve-3d;
+    animation: imgHidden 0.5s linear 0s 1 alternate;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+    transform-origin: center top; /*设置翻转基准*/
+    /*opacity: 0;*/
+    /*transform: translateY(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);*/
+  }
+
+  @keyframes imgHidden {
+    from {
+      opacity: 1;
+      /*margin-top: 0px;*/
+      transform: translateY(0px) rotateX(0deg);
+
+    }
+    to {
+      /*margin-top: -2000px;*/
+      opacity: 0;
+      transform: translateY(-100%) rotateX(90deg);
+
+    }
+  }
+  #mark{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    z-index: 3;
+    top: 670px;
+    left: 50%;
+  }
+
+
+  #mark{
+    animation:mark 1s linear 0s  infinite;
+
+  }
+  @keyframes mark {
+    0%{
+      opacity: 1;
+    }
+    50%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+
+</style>
+
+<body>
+
+<img id="mark" src="../image/mark.png" alt="">
+<img id="img01" src="../image/b1.png" alt="">
+<div class=""></div>
+
+<div class="container">
+  <div class="signup" id="signup">sign up</div>
+  <div class="login" id="login">log in</div>
+  <div class="signup-form" id="signup-form">
+
+    <form id="form1" action="../PHP/processSignUp.php" method="post">
+    <input type="text" placeholder="Choose a Username" class="input" id="USERNAME_S" name="username"><br>
+    <input type="password" placeholder="Choose a Password" class="input" id="PASSWORD1_S" name="password1"><br>
+    <input type="password" placeholder="Confirm the Password" class="input" id="PASSWORD2_S" name="password2"><br>
+
+      <button type="submit" class="btn1"><div class="btn" id="btn1">create account</div></button>
+
+    </form>
+  </div>
+
+
+
+  <div class="login-form" id="login-form">
+
+    <!--<form action="../PHP/processLogin.php" method="post">-->
+    <input type="text" class="input" placeholder="UserName" id="USERNAME_L" name="username_Login"><br>
+    <input type="password" class="input" placeholder="Password" id="PASSWORD_L" name="password_Login"><br>
+
+    <button type="submit" class="btn2"><div class="btn" id="btn2">log in</div></button>
+
+    <!--</form>-->
+    <!--<span><a href="#">I Forget my Username or Password</a></span>-->
+  </div>
+</div>
+
+
+<div class="time">
+  <div class="time_top">
+    <img class="img_top" id="img_top1" src="../image/0.png" alt="" width="50px" height="70px">
+    <img class="img_top" id="img_top2" src="../image/1.png" alt="" width="50px" height="70px">
+    <p class="point1">
+      <!--:-->
+    </p>
+    <img class="img_top" id="img_top3" src="../image/2.png" alt="" width="50px" height="70px">
+    <img class="img_top" id="img_top4" src="../image/3.png" alt="" width="50px" height="70px">
+    <img class="img_top" id="img_top5" src="../image/4.png" alt="" width="40px" height="48px">
+    <img class="img_top" id="img_top6" src="../image/5.png" alt="" width="40px" height="48px">
+  </div>
+
+  <div class="time_bottom">
+    <img class="img_top" id="img_bottom1" src="../image/0.png" alt="" width="40px" height="70px">
+    <img class="img_top" id="img_bottom2" src="../image/1.png" alt="" width="40px" height="70px">
+    <p class="point2">
+      .
+    </p>
+    <img class="img_top" id="img_bottom3" src="../image/2.png" alt="" width="40px" height="70px">
+    <img class="img_top" id="img_bottom4" src="../image/3.png" alt="" width="40px" height="70px">
+
+    <p class="point3">
+      .
+    </p>
+
+    <img class="img_top" id="img_bottom5" src="../image/4.png" alt="" width="40px" height="70px">
+    <img class="img_top" id="img_bottom6" src="../image/5.png" alt="" width="40px" height="70px">
+    <img class="img_top" id="img_bottom7" src="../image/6.png" alt="" width="40px" height="70px">
+    <img class="img_top" id="img_bottom8" src="../image/7.png" alt="" width="40px" height="70px">
+  </div>
+</div>
+
+<script>
+    window.onload=function () {
+
+        var username_s=document.getElementById('USERNAME_S');
+        var password1_s=document.getElementById('PASSWORD1_S');
+        var password2_s=document.getElementById('PASSWORD2_S');
+
+        var btn1=document.getElementById('btn1');
+        var btn2=document.getElementById('btn2');
+
+
+        btn1.onclick=function () {
+            // var username=document.getElementById('USERNAME_S');
+            // var password1=document.getElementById('PASSWORD1_S');
+
+            // var username_value=username.value;
+            // var password1_value=password1.value;
+            var form1=document.getElementById('form1');
+            // console.log(form1.action);
+            if (password1_s.value!=password2_s.value){
+                alert("密码不一致，请重新输入！");
+                form1.action='#';
+                // password2_s.value=''
+                // password1.value=password1_value;
+                // username.value=username_value;
+            }
+            else{
+                alert('注册成功！');
+                form1.action='../PHP/processSignUp.php';             //如果password1和password2相同，则跳转到PHP页面进行数据库操作。
+            }
+        }
+
+        /*判定登陆*/
+
+
+
+        //不做任何事，
+        btn2.onclick=function () {
+            var username_l=document.getElementById('USERNAME_L');
+            var password=document.getElementById('PASSWORD_L');
+            if(username_l.value=='admin'&&password.value=='admin'){
+            //     console.log(username_l.value+"  "+password.value);
+                window.location.href='../HTML01/FinalIndex.html';
+            }
+        }
+
+        //切换登陆和注册状态
+        var signup=document.getElementById('signup');
+        var login=document.getElementById('login');
+
+        var signup_form=document.getElementById('signup-form');
+        var login_form=document.getElementById('login-form');
+        signup.onclick=function () {
+
+            signup_form.style.display='block';
+            login_form.style.display='none';
+            // if(signup_form.style.display==='none'){
+            //     signup_form.style.display='';
+            // }
+            // signup.style.border="0.5px solid black";
+        }
+
+        login.onclick=function () {
+
+            login_form.style.display='block';
+            signup_form.style.display='none';
+            // if(login_form.style.display==='none'){
+            //     login_form.style.display='';
+            // }
+            // login.style.border="0.5px solid black";
+        }
+
+        //开场图片翻转
+        var img01 = document.getElementById('img01');           //获取开场图片
+        var mark=document.getElementById('mark');
+        mark.onclick=function () {
+            img01.style.animationPlayState='running';
+            mark.style.display='none';
+        }
+
+
+        //时间图片的控制
+        var img_top1=document.getElementById('img_top1');
+        var img_top2=document.getElementById('img_top2');
+        var img_top3=document.getElementById('img_top3');
+        var img_top4=document.getElementById('img_top4');
+        var img_top5=document.getElementById('img_top5');
+        var img_top6=document.getElementById('img_top6');
+
+
+        var img_bottom1=document.getElementById('img_bottom1');
+        var img_bottom2=document.getElementById('img_bottom2');
+        var img_bottom3=document.getElementById('img_bottom3');
+        var img_bottom4=document.getElementById('img_bottom4');
+        var img_bottom5=document.getElementById('img_bottom5');
+        var img_bottom6=document.getElementById('img_bottom6');
+        var img_bottom7=document.getElementById('img_bottom7');
+        var img_bottom8=document.getElementById('img_bottom8');
+
+        setInterval(function () {
+            var date=new Date();
+
+            var year=date.getFullYear();
+            var month=date.getMonth();
+            var day=date.getDate();
+
+            var hour=date.getHours();
+            var minute=date.getMinutes();
+            var seconds=date.getSeconds();
+            for(var i=0;i<=9;i++){
+                if(seconds.toString().length===2){
+                    if(seconds.toString()[0]===i.toString()){
+                        img_top5.src='../number/' + i + '.png';
+                    }
+                    if(seconds.toString()[1]===i.toString()){
+                        img_top6.src='../number/' + i + '.png';
+                    }
+                }
+                if(seconds.toString().length===1){
+                    img_top5.src="../number/0.png"
+                    if(seconds.toString()[0]===i.toString()){
+                        img_top6.src='../number/'+i+'.png';
+                    }
+                }
+                if(minute.toString().length===1){
+                    img_top3.src="../number/0.png"
+                    if(minute.toString()[0]===i.toString()){
+                        img_top4.src='../number/'+i+'.png';
+                    }
+                }
+                if(minute.toString().length===2) {
+                    if(minute.toString()[0]===i.toString()){
+                        img_top3.src='../number/'+i+'.png';
+                    }
+                    if(minute.toString()[1]===i.toString()){
+                        img_top4.src='../number/'+i+'.png';
+                    }
+                }
+
+                if(hour.toString()[0]===i.toString()){
+                    img_top1.src='../number/'+i+'.png';
+
+                }
+                if(hour.toString()[1]===i.toString()){
+                    img_top2.src='../number/'+i+'.png';
+                }
+
+                if(month.toString()[0]===i.toString()){
+                    img_bottom1.src='../number/'+i+'.png';
+                }
+                if(month.toString()[1]===i.toString()){
+                    img_bottom2.src='../number/'+i+'.png';
+                }
+                if(day.toString()[0]===i.toString()){
+                    img_bottom3.src='../number/'+i+'.png';
+                }
+                if(day.toString()[1]===i.toString()){
+                    img_bottom4.src='../number/'+i+'.png';
+                }
+
+                if(year.toString()[0]===i.toString()){
+                    img_bottom5.src='../number/'+i+'.png';
+                }
+                if(year.toString()[1]===i.toString()){
+                    img_bottom6.src='../number/'+i+'.png';
+                }
+                if(year.toString()[2]===i.toString()){
+                    img_bottom7.src='../number/'+i+'.png';
+                }
+                if(year.toString()[3]===i.toString()){
+                    img_bottom8.src='../number/'+i+'.png';
+                }
+            }
+            // console.log(seconds.toString()[0]+" "+seconds.toString()[1]);
+            // console.log(hour.toString());
+            // console.log(minute.toString().length);
+            // console.log(seconds.toString().length);
+        },1000);
+
+
+
+
+    }
+</script>
+
+
+
+
+</body>
+</html>

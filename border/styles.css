@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: Arial;
+    /*overflow: hidden;*/
+}
+.wrapper{
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.share{
+    width: 58px;
+    height: 58px;
+    /*background: red;*/
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+.share .fa{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: #fff;
+    font-size: 25px;
+}
+.share.qq{
+    background: #3b5998;
+}
+.share.weixin{
+    background: #55acee;
+}
+.share.weibo{
+    background: #ff4500;
+}
+.share.envelope{
+    background: #dd4b39;
+}
+.share.phone{
+    background: #4dc247;
+}
+.share:hover{
+    width: 70px;
+}
+.container{
+    max-width: 700px;
+    margin: 50px auto;
+}
+.container h2{
+    margin-bottom: 20px;
+    text-align: center;
+}
+.container.section{
+    margin-bottom: 15px;
+    line-height: 22px;
+}

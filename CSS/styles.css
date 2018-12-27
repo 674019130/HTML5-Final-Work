@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+body {
+    background: #e9eaea;
+    font-family: 'Roboto', sans-serif;
+    background-image: url("../image/猫咪.jpg");
+    background-size: cover;
+
+}
+
+.container {
+    width: 450px;
+    margin: 70px auto;
+}
+
+/*我加的*/
+.container {
+    position: relative;
+
+}
+
+.signup,
+.login {
+    width: 50%;
+    background: #fff;
+    height: 60px;
+    float: left;
+    text-align: center;
+    line-height: 60px;
+    text-transform: uppercase;
+
+    /*background-color: beige;;*/
+    /*border: 0.5px solid gray;*/
+    /*box-sizing: border-box;*/
+}
+.login{
+    margin-left: 460px;
+    margin-top: 55px;
+}
+.signup{
+    /*margin-left: 230px;*/
+    /*margin-bottom: 0px;*/
+    position: relative;
+    top: 115px;
+    left: 235px;
+}
+
+
+.signup-form,
+.login-form {
+    margin-top: 175px;
+    background: #fff;
+    box-sizing: border-box;
+    padding: 40px;
+    clear: both;
+    width: 100%;
+    height: 400px;
+    margin-left: 235px;
+}
+
+/*我加的*/
+.signup-form {
+    position: absolute;
+
+}
+
+.login-form {
+    position: absolute;
+    display: none;
+}
+
+
+.input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px;
+    margin-bottom: 25px;
+    border: 2px solid #e9eaea;
+    color: #3e3e40;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.5s ease;
+}
+
+.input:focus {
+    border: 2px solid #34b3a0;
+}
+
+.btn {
+    width: 100%;
+    background: #34b3a0;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.btn1 {
+    border: none;
+    height: 60px;
+    width: 100%;
+}
+
+.btn2 {
+    border: none;
+    height: 60px;
+    width: 100%;
+    margin-top: 70px;
+}
+#btn2{
+    margin-top: 0px;
+}
+span a {
+    text-decoration: none;
+    color: #000;
+
+}
+
+/*添加的时间显示*/
+.time{
+    width:350px;
+    height: 100px;
+    /*border: 0.5px solid black;*/
+
+    position: absolute;
+    top: 16px;
+    left: 1163px;
+}
+.time_top{
+    width: 350px;
+    height: 100px;
+    /*border: 0.5px solid black;*/
+    box-sizing: border-box;
+}
+.time_bottom{
+    width: 450px;
+    height: 100px;
+    /*border: 0.5px solid black;*/
+    box-sizing: border-box;
+    display: none;
+}
+
+.img_top{
+    margin-top: 20px;
+}
+
+.point1{
+    display: inline-block;
+    font-size: 70px;
+    margin-top: -20px;
+}
+.point2{
+    display: inline-block;
+    font-size: 50px;
+}
+.point3{
+    display: inline-block;
+    font-size: 50px;
+ }
